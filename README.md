@@ -31,7 +31,7 @@ Uninstall process removes all the free backlinks from the all webpages once you 
 <hr>
 # Download
 
-# 1.3.9 =
+# 1.3.9 = gyrojob-backlinks.zip
 * The most recent versions.
 
 # Upgrade Notice ==
