@@ -23,7 +23,7 @@ Make unlimited free backlinks to increase Domain Authority (DA).
 
 ### The plugin doesn’t do anything!
 
-You have installed but the plugin still isn’t work anything, please [email us](https://github.com/plugin/support).
+You have installed but the plugin still isn’t work anything, please [email us]([https://github.com/plugin/support](https://plugin.gyrojob.com/contacts.php)).
 
 ### Uninstall plugin?
 
