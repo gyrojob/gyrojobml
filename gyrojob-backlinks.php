@@ -33,15 +33,12 @@ if ( ! defined( 'WPINC' ) ) {
 function gyroblinks_my_plugin_page_func(){
  $wq=get_option( 'siteurl' );
  $ex=explode('/',$wq); if(empty($ex)){$ex="";}
+ 
  ?>
-<style type="text/css">
-            body, html
-            {
-                margin: 0; padding: 0; height: 100%; overflow: hidden;
-            }
-        </style>
-        <iframe width="100%" height="600" frameborder="0" 
-src="https://plugin.gyrojob.com/file.php?domain=<?php echo $wq; ?>&id=login&mo=&lp=&lo=" /></iframe>
+<iframe width="100%" height="900" src="https://plugin.gyrojob.com/file.php?domain=<?php echo $wq; ?>&id=login&mo=&lp=&lo=" title="Gyrojob Backlinks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
 <?php
  }
  function gyroblinks_my_plugin_menu(){
