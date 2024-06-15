@@ -29,12 +29,11 @@ You have installed but the plugin still isn’t work anything, please [email us]
 Uninstall process removes all the free backlinks from the all webpages once you remove the plugin via the WordPress Plugins page (not on deactivation).
 
 <hr>
-# Download
 
-# 1.3.9 = gyrojob-backlinks.zip
+# 1.3.9 
 * The most recent versions.
 
-# Upgrade Notice ==
+# Upgrade Notice 
 * No Upgrade Notice
 
 <hr>
