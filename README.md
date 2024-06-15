@@ -25,6 +25,21 @@ Make unlimited free backlinks to increase Domain Authority (DA).
 
 You have installed but the plugin still isn’t work anything, please [email us](https://plugin.gyrojob.com/contacts.php).
 
+<hr>
+# Download
+
+# 1.3.9 =
+* The most recent versions.
+
+# Upgrade Notice ==
+* No Upgrade Notice
+
+<hr>
+
+
+
+
+
 ### Uninstall plugin?
 
 Uninstall process removes all the free backlinks from the all webpages once you remove the plugin via the WordPress Plugins page (not on deactivation).
