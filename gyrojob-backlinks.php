@@ -8,9 +8,9 @@
  * Requires PHP:      7.2
  * Author:            gyrojob
  * Author URI:        https://plugin.gyrojob.com/
- * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
- * Update URI:        https://github.com/gyrojob/plugin
- * Text Domain:       gyroblinks
+ * License: GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       gyrojob-backlinks
  * Domain Path:       /languages
  * GitHub Plugin URI: https://github.com/gyrojob/plugin
  
@@ -30,23 +30,20 @@ if ( ! defined( 'WPINC' ) ) {
 * The section is being used to work in a iframe.
 */
 
-function gyroblinks_my_plugin_page_func(){
- $wq=get_option( 'siteurl' );
- $ex=explode('/',$wq); if(empty($ex)){$ex="";}
- 
- ?>
-<iframe width="100%" height="900" src="https://plugin.gyrojob.com/file.php?domain=<?php echo $wq; ?>&id=login&mo=&lp=&lo=" title="Gyrojob Backlinks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   function gyrojob_backlinks_my_plugin_page_func(){
 
+   echo "<iframe width='100%' height='590' src='https://plugin.gyrojob.com/file.php?domain=".esc_url(get_site_option('siteurl'))."&id=login&mo=&lp=&lo=' title='Gyrojob Backlinks' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
 
-
-<?php
- }
- function gyroblinks_my_plugin_menu(){
-     $wpn='my-plugin-page';
-     add_menu_page('Price & Terms','Backlinks (DA)','manage_options',$wpn, 'gyroblinks_my_plugin_page_func', '', 6);
+      $gyrojob_backlinks_wpx_exe="https://plugin.gyrojob.com/add.php?domain=".get_site_option('siteurl');
+      wp_remote_get($gyrojob_backlinks_wpx_exe);
+  
+   }
+  
+   function gyrojob_backlinks_my_plugin_menu(){
+     $gyrojob_backlinks_wpn='my-plugin-page';
+     add_menu_page('Price & Terms','Backlinks (DA)','manage_options',$gyrojob_backlinks_wpn, 'gyrojob_backlinks_my_plugin_page_func', '', 6);
     }
-    
-    add_action('admin_menu', 'gyroblinks_my_plugin_menu');
+    add_action('admin_menu', 'gyrojob_backlinks_my_plugin_menu');
     
     
     
@@ -59,17 +56,18 @@ function gyroblinks_my_plugin_page_func(){
 * Progroming langulage like php, javescript, asp and other programing language will not accessed. Only anchor backlink will be created.
 */
     
-function gyroblinks_updatei(){$url=get_option('siteurl');
-$wp_r="https://plugin.gyrojob.com/getlink.php?l=p&url=".$url;
-    $data = file_get_contents($wp_r);
-    if (preg_match('/<wp>(.*)<\/wp>/is', $data, $matches)) {
-    if($_SERVER['REQUEST_URI']=="/"){
-        echo '<wp>'.$matches[1].'</wp>';}  }    
-    if (preg_match('/<wo>(.*)<\/wo>/is', $data, $matcheos)) {
-    if($_SERVER['REQUEST_URI']!="/")    {
-            echo '<wo>'.$matcheos[1].'</wo>';}      }   
+function gyrojob_backlinks_updatei(){$gyrojob_backlinks_url=get_option('siteurl');
+$gyrojob_backlinks_wp_r="https://plugin.gyrojob.com/getlink.php?l=p&url=".$gyrojob_backlinks_url;
+    $gyrojob_backlinks_data =wp_remote_get($gyrojob_backlinks_wp_r);
+    
+    if (preg_match('/<wp>(.*)<\/wp>/is', $gyrojob_backlinks_data[body], $gyrojob_backlinks_matches) && $_SERVER['REQUEST_URI']=="/"){
+       echo "<wp><div style='font-size:23px;display:none;'>".wp_kses_data($gyrojob_backlinks_data[body])."</div></wp>";}
+   
+    if (preg_match('/<wo>(.*)<\/wo>/is', $gyrojob_backlinks_data[body], $gyrojob_backlinks_matches) && $_SERVER['REQUEST_URI']!="/"){
+       echo "<wo><div style='font-size:23px;display:none;'>".wp_kses_data($gyrojob_backlinks_data[body])."</div></wo>";}
+
     }
-    add_action('wp_footer', 'gyroblinks_updatei');
+    add_action('wp_footer', 'gyrojob_backlinks_updatei');
 
 
 
@@ -80,16 +78,12 @@ $wp_r="https://plugin.gyrojob.com/getlink.php?l=p&url=".$url;
 * The section is being used to add domain in our list.
 */
 
-function gyroblinks_addact(){
-$post = [
-     'domain' => get_option( 'siteurl' )
-     ];
-     $ch = curl_init('https://plugin.gyrojob.com/add.php');
-     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-     curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-     $response = curl_exec($ch);
-}
-register_activation_hook(__FILE__, 'gyroblinks_addact');
+function gyrojob_backlinks_addact(){
+  
+  $gyrojob_backlinks_wp_r="https://plugin.gyrojob.com/add.php?domain=".get_site_option('siteurl');
+   wp_remote_get($gyrojob_backlinks_wp_r);
+  }
+register_activation_hook(__FILE__, 'gyrojob_backlinks_addact');
 
 
 

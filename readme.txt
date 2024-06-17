@@ -1,12 +1,15 @@
 === Gyrojob Backlinks ===
 Contributors: gyrojob17
-Donate link: https://example.com/
+Donate link: https://www.paypal.com/invoice/p/#KN2RSNRTPKSZRZM9
+Plugin URI:  https://plugin.gyrojob.com/
+Author URI:  https://plugin.gyrojob.com/
 Tags: Dofollow backlinks, Domain Authority (DA)
 Requires at least: 5.2
-Tested up to: 5.6
+Tested up to: 6.5.4
 Stable tag: 1.3.9
 Requires PHP: 7.2
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
+License: GPLv2 or later 
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Make unlimited free backlinks to increase Domain Authority (DA). Check domain for dofollow backlinks.
 
