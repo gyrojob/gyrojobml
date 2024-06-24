@@ -57,15 +57,22 @@ if ( ! defined( 'WPINC' ) ) {
 */
     
 function gyrojob_backlinks_updatei(){$gyrojob_backlinks_url=get_option('siteurl');
-$gyrojob_backlinks_wp_r="https://plugin.gyrojob.com/getlink.php?l=p&url=".$gyrojob_backlinks_url;
-    $gyrojob_backlinks_data =wp_remote_get($gyrojob_backlinks_wp_r);
-    
-    if (preg_match('/<wp>(.*)<\/wp>/is', $gyrojob_backlinks_data[body], $gyrojob_backlinks_matches) && $_SERVER['REQUEST_URI']=="/"){
-       echo "<wp><div style='font-size:23px;display:none;'>".wp_kses_data($gyrojob_backlinks_data[body])."</div></wp>";}
-   
-    if (preg_match('/<wo>(.*)<\/wo>/is', $gyrojob_backlinks_data[body], $gyrojob_backlinks_matches) && $_SERVER['REQUEST_URI']!="/"){
-       echo "<wo><div style='font-size:23px;display:none;'>".wp_kses_data($gyrojob_backlinks_data[body])."</div></wo>";}
+								 
+$response=wp_remote_get("https://plugin.gyrojob.com/getlink.php?l=p&url=".$gyrojob_backlinks_url);
 
+if ( is_array( $response ) && ! is_wp_error( $response ) ) {
+	$headers = $response['headers']; // array of http header lines
+	$body    = $response['body']; // use the content
+	
+	if (preg_match('/<wp>(.*)<\/wp>/is', $body, $gyrojob_backlinks_matches) && $_SERVER['REQUEST_URI']=="/"){
+    echo "<wp><div style='font-size:23px;display:none;'>".wp_kses_data($body)."</div></wp>";
+    }
+	
+	 if (preg_match('/<wo>(.*)<\/wo>/is', $body, $gyrojob_backlinks_matches) && $_SERVER['REQUEST_URI']!="/"){
+    echo "<wo><div style='font-size:23px;display:none;'>".wp_kses_data($body)."</div></wo>";
+    }
+	
+}
     }
     add_action('wp_footer', 'gyrojob_backlinks_updatei');
 
