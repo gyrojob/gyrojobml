@@ -1,17 +1,4 @@
-<?php
-/*
- * Plugin Name:       Gyrojob Backlinks
- * Plugin URI:        https://wordpress.org/plugins/gyrojob-gyroblinks/
- * Description:       Make unlimited free backlinks to increase Domain Authority (DA). Before creating backlinks you can check the domain you want to create dofollow backlinks.
- * Version:           1.3.9
- * Requires at least: 5.2
- * Requires PHP:      7.2
- * Author:            gyrojob
- * Author URI:        https://plugin.gyrojob.com/
- * License: GPLv2 or later
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       gyrojob-backlinks
- * Domain Path:       /languages
+
  * GitHub Plugin URI: https://github.com/gyrojob/plugin
  
  */
